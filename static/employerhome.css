@@ -1,0 +1,4 @@
+body {
+    background-image: url('ebg.jpg'); /* Replace 'image.jpg' with the filename of your image */
+    background-size: cover; /* Adjust the size of the background image to cover the entire body */
+}

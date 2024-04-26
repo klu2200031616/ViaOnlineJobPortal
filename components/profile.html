@@ -1,0 +1,96 @@
+{% extends 'jobbase.html' %}
+{% load static %}
+
+{% block child2 %}
+<head>
+    <title>User Profile</title>
+
+
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            border: 2px solid blue;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h1 {
+            color: #0000FF;
+        }
+
+        .profile-image {
+            text-align: center;
+        }
+
+        .profile-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .profile-info {
+            margin-top: 30px;
+        }
+
+        .profile-info p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .edit-profile {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .edit-profile a {
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .edit-profile a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body style="background-image: url('{% static 'img_5.png' %}'); background-size: cover;">
+
+<div class="profile-container">
+    <div class="profile-header">
+        <h1>User Profile</h1>
+    </div>
+    <div class="profile-image">
+        <img src="{{ viauser.image.url }}" alt="Profile Image">
+    </div>
+    <div class="profile-info">
+        <p><strong>First Name:</strong> {{ viauser.user.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ viauser.user.last_name }}</p>
+        <p><strong>Email:</strong> {{ viauser.user }}</p>
+        <p><strong>Contact:</strong> {{ viauser.mobile }}</p>
+        <p><strong>Gender:</strong> {{ viauser.gender }}</p>
+    </div>
+    <!-- Add an edit profile button here if needed -->
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endblock child2 %}

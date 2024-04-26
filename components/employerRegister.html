@@ -1,0 +1,122 @@
+{% load static %}
+{% block body %}
+
+{% include 'base.html' %}
+<script>
+    function checkpass() {
+        if (document.signup.pwd.value != document.signup.cpwd.value) {
+            alert('password and repeat password field does not match')
+            document.signup.cpwd.focus();
+            return false
+        }
+        return true;
+    }
+</script>
+<body style="background-image: url('{% static 'img_19.png' %}'); background-size: cover;">
+<center><h2>Register as Employer in our Via Job Portal</h2></center>
+<hr>
+<form class="container mt-5" onsubmit="return checkpass();" name="signup" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="fname" placeholder="enter your first name" required pattern="[A-Za-z]+" title="Only alphabets allowed">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="lname" placeholder="enter your last name" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Company Logo</label>
+            <input type="file" class="form-control" name="image" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Company Name</label>
+            <input type="text" class="form-control" name="cname" placeholder="enter Company name" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Email ID</label>
+            <input type="email" class="form-control" name="email" placeholder="enter email address" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Password</label>
+            <input type="password" class="form-control" name="pwd" placeholder="enter password" required  pattern="^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="At least 8 characters with a capital letter, a special symbol, and a digit">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Confirm password</label>
+            <input type="password" class="form-control" name="cpwd" placeholder="enter password again" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Location</label>
+            <input type="text" class="form-control" name="location" placeholder="enter location" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Role in the Company</label>
+            <input type="text" class="form-control" name="role" placeholder="enter role in the company" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Contact Number</label>
+             <input type="tel" class="form-control" name="contact" placeholder="Enter contact number" required pattern="[0-9]{10}" title="10-digit  phone number">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Office Number</label>
+             <input type="tel" class="form-control" name="contact" placeholder="Enter contact number" required pattern="[0-9]{10}" title="10-digit phone number">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Gender</label>
+            <div style="border:1px solid lightgrey ; padding:6px ; border-radius:6px">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="Male">
+                    <label class="custom-control-label" for="customRadioInline1">Male</label>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="Female">
+                    <label class="custom-control-label" for="customRadioInline2">Female</label>
+                </div>
+            </div>
+        </div>
+    </div>
+     <a href="/email_template" class="styled-link">Verify Email</a>
+    <br><br>
+
+    <input type="submit" value="Submit" class="btn btn-primary my-3" style="width:200px">
+
+</form>
+
+</body>
+{% if error == "no" %}
+<script>
+    alert("Employer Signup Successful");
+    window.location.href = '{% url 'employerRegister' %}';
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Something went wrong,Try Again");
+</script>
+{% endif %}
+
+{% endblock %}

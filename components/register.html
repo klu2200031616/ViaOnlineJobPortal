@@ -1,0 +1,98 @@
+{% load static %}
+{% block body %}
+
+{% include 'base.html' %}
+<script>
+    function checkpass() {
+        if (document.signup.pwd.value != document.signup.cpwd.value) {
+            alert('Password and repeat password fields do not match');
+            document.signup.cpwd.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+<body style="background-image: url('{% static 'img_19.png' %}'); background-size: cover;">
+
+<center><h2>Register as User in our Via Job Portal</h2></center>
+<hr>
+<form class="container mt-5" onsubmit="return checkpass();" name="signup" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="fname" placeholder="Enter first name" required pattern="[A-Za-z]+" title="Only alphabets allowed">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="lname" placeholder="Enter last name" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Contact</label>
+            <input type="tel" class="form-control" name="contact" placeholder="Enter contact number" required pattern="[0-9]{10}" title="10-digit Indian phone number">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Email ID</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter email address" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Password</label>
+            <input type="password" class="form-control" name="pwd" placeholder="Enter password" required pattern="^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="At least 8 characters with a capital letter, a special symbol, and a digit">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Confirm password</label>
+            <input type="password" class="form-control" name="cpwd" placeholder="Enter password again" required>
+        </div>
+    </div>
+
+       <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Gender</label>
+            <div style="border:1px solid lightgrey ; padding:6px ; border-radius:6px">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="Male">
+                <label class="custom-control-label" for="customRadioInline1">Male</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="Female">
+                <label class="custom-control-label" for="customRadioInline2">Female</label>
+            </div>
+                </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Image</label>
+            <input type="file" class="form-control" name="image">
+        </div>
+    </div>
+    <a href="/email_template" class="styled-link">Verify Email</a>
+    <br><br>
+    <input type="submit" value="Submit" class="btn btn-primary my-3" style="width:200px">
+</form>
+</body>
+
+{% if error == "no" %}
+<script>
+    alert("Signup Successful");
+    window.location.href = '{% url 'register' %}';
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Something went wrong, Try Again");
+</script>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'employerbase.html' %}
+{% load static %}
+
+{% block child3 %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'post.css' %}">
+    <style>
+        /* Card container styling */
+        .card-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Card styling */
+        .job-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Blue color for inputs and buttons */
+        .job-form input[type="text"],
+        .job-form input[type="url"],
+        .job-form input[type="date"],
+        .job-form textarea,
+        .job-form button[type="submit"],
+        .job-form button[type="button"] {
+            background-color: #E5E7E9;
+            color: black;
+
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Green color for success messages */
+        .success-message {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="card-container">
+    <div class="job-form">
+
+         <h2>Job Posting Form - {{ request.user.employer.company }}</h2>
+        <form id="job-posting-form" class="job-form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" id="creationdate" name="creationdate" value="{{ creationdate }}">
+             <div class="form-group">
+                <label for="logo">Company Logo</label>
+                <input type="file" class="form-control" id="logo" name="logo" accept=".jpg, .jpeg, .png">
+            </div>
+            <div class="form-group">
+                <label >Job Title</label>
+                <input type="text" class="form-control" id="jobtitle" name="jobtitle" required>
+            </div>
+
+            <div class="form-group">
+                <label for="salary">Salary(per month)</label>
+                <input type="text" class="form-control" id="salary" name="salary" required>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <input type="text" class="form-control" id="skills" name="skills" required>
+            </div>
+             <div class="form-group">
+                <label for="end-date">Start Date</label>
+                <input type="date" class="form-control" id="start-date" name="start-date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="end-date">End Date</label>
+                <input type="date" class="form-control" id="end-date" name="end-date" required>
+            </div>
+
+            <div class="form-group">
+                <label>Experience(In years)</label>
+                <textarea class="form-control" id="experience" name="experience" rows="3" required></textarea>
+            </div>
+             <div class="form-group">
+                <label>Company location</label>
+                <textarea class="form-control" id="location" name="location" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="description" id="description" name="description" rows="3" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="background-color: #196F3D;" onclick="sample()">Post</button>
+        </form>
+    </div>
+</div>
+</body>
+
+{% if error == "no" %}
+<script>
+    alert("Job has been posted");
+    window.location.href = '{% url 'employerhome' %}';
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Something went wrong,Try Again");
+</script>
+{% endif %}
+{% endblock child3 %}

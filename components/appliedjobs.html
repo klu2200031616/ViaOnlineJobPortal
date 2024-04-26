@@ -1,0 +1,28 @@
+{% extends 'jobbase.html' %}
+{% load static %}
+
+{% block child2 %}
+<div class="card-container">
+    <h2>Applied Jobs List</h2>
+    {% if applied_jobs %}
+    {% for applied_job in applied_jobs %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ applied_job.position }} at {{ applied_job.company_name }}</h5>
+            <p>Status:
+                {% if applied_job.status == 'selected' %}
+                    <span class="text-success">&#10004; Selected</span>
+                {% elif applied_job.status == 'unselected' %}
+                    <span class="text-danger">&#10006; Unselected</span>
+                {% else %}
+                    <span class="text-warning">&#9888; Pending</span>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No applied jobs found.</p>
+    {% endif %}
+</div>
+{% endblock %}

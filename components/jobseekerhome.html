@@ -1,0 +1,81 @@
+{% extends 'jobbase.html' %}
+{% load static %}
+
+{% block child2 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'jobseekerhome.css' %}">
+</head>
+<body style="background-image: url('{% static 'jsbg.jpg' %}'); background-size: cover;">
+    <div class="content">
+       <div class="about-section">
+    <h1><b>About Us</b></h1>
+    <h2><b>Welcome to our platform where job seekers from all over the world connect with opportunities!</b></h2>
+    <button class="btn" onclick="window.location.href='/aboutus'">Learn More</button>
+    <button class="btn" onclick="window.location.href='/reviews'"> Share your Success Stories</button>
+</div>
+
+        <div class="job-container">
+            <div class="job-item">
+                <div class="company-logo">
+                    <img src="{% static 'img_1.png' %}" alt="Company Logo">
+                </div>
+                <div class="job-details">
+                    <h3>Coco-Cola</h3>
+                    <p>Salary: Rs:60,000</p>
+                    <p>End Date: June 30, 2024</p>
+                </div>
+                <div class="apply-btn">
+                    <button class="btn btn-primary" onclick="window.location.href='/apply'">Apply Now</button>
+                </div>
+            </div>
+            <!-- Add more job items as needed -->
+            <div class="job-item">
+                <div class="company-logo">
+                    <img src="{% static 'img_2.png' %}" alt="Company Logo">
+                </div>
+                <div class="job-details">
+                    <h3>Loremipsum</h3>
+                    <p>Salary: Rs:75,000</p>
+                    <p>End Date: May 3, 2024</p>
+                </div>
+                <div class="apply-btn">
+                    <button class="btn btn-primary" onclick="window.location.href='/apply'">Apply Now</button>
+                </div>
+            </div>
+
+             <div class="job-item">
+                <div class="company-logo">
+                    <img src="{% static 'img_3.jpg' %}" alt="Company Logo">
+                </div>
+                <div class="job-details">
+                    <h3>Microsoft</h3>
+                    <p>Salary: Rs:1,00,000</p>
+                    <p>End Date: April 13, 2024</p>
+                </div>
+                <div class="apply-btn">
+                    <button class="btn btn-primary" onclick="window.location.href='/apply'">Apply Now</button>
+                </div>
+            </div>
+
+             <div class="job-item">
+                <div class="company-logo">
+                    <img src="{% static 'img_4.png' %}" alt="Company Logo">
+                </div>
+                <div class="job-details">
+                    <h3>Hexa Tech</h3>
+                    <p>Salary: Rs:1,20,000</p>
+                    <p>End Date: March 30, 2024</p>
+                </div>
+                <div class="apply-btn">
+                    <button class="btn btn-primary" onclick="window.location.href='/apply'">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock child2 %}

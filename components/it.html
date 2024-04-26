@@ -1,0 +1,119 @@
+{% extends 'jobbase.html' %}
+{% load static%}
+{% block child2 %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Subjects in Computer Science</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+           background-image: url("{% static 'jsbg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Core Subjects in Computer Science and Their Importance in Interviews</h1>
+
+        <p>
+            Understanding core subjects in computer science is essential for any aspiring software developer or IT professional. Here's an overview of some key core subjects and their importance in job interviews:
+        </p>
+
+        <ul>
+            <li><strong>Operating Systems (OS):</strong> Understanding operating systems is crucial for any software developer as it forms the basis of computer interaction and management.</li>
+            <li><strong>Data Structures and Algorithms (DSA):</strong> DSA is fundamental to computer science and is often a key topic in technical interviews for software development positions.</li>
+            <li><strong>Computer Networks:</strong> Knowledge of computer networks is essential for understanding how data is transmitted between devices, making it vital for network engineers and software developers.</li>
+            <li><strong>Database Management Systems (DBMS):</strong> DBMS is essential for managing large volumes of data efficiently, making it a crucial skill for database administrators and software developers.</li>
+            <li><strong>Design and Analysis of Algorithms (DAA):</strong> DAA is important for understanding the efficiency and performance of algorithms, making it vital for software developers and engineers.</li>
+        </ul>
+
+        <h2>Core Subjects Overview:</h2>
+        <table>
+            <tr>
+                <th>Subject Name</th>
+                <th>Level</th>
+                <th>Uses</th>
+                <th>Learn More</th>
+            </tr>
+            <tr>
+                <td>Operating Systems (OS)</td>
+                <td>Foundational</td>
+                <td>Manages computer hardware and software resources</td>
+                <td><a href="https://www.geeksforgeeks.org/operating-systems/"><img src="{% static 'img_3.png' %}" alt="Learn more"></a></td>
+            </tr>
+            <tr>
+                <td>Data Structures and Algorithms (DSA)</td>
+                <td>Intermediate</td>
+                <td>Optimizing data storage and retrieval</td>
+                <td><a href="https://www.geeksforgeeks.org/data-structures/"><img src="{% static 'img_3.png' %}" alt="Learn more"></a></td>
+            </tr>
+            <tr>
+                <td>Computer Networks</td>
+                <td>Intermediate</td>
+                <td>Facilitating communication and data exchange between devices</td>
+                <td><a href="https://www.geeksforgeeks.org/computer-network-tutorials/"><img src="{% static 'img_3.png' %}" alt="Learn more"></a></td>
+            </tr>
+            <tr>
+                <td>Database Management Systems (DBMS)</td>
+                <td>Intermediate</td>
+                <td>Efficiently managing large volumes of data</td>
+                <td><a href="https://www.geeksforgeeks.org/dbms/"><img src="{% static 'img_3.png' %}" alt="Learn more"></a></td>
+            </tr>
+            <tr>
+                <td>Design and Analysis of Algorithms (DAA)</td>
+                <td>Advanced</td>
+                <td>Optimizing algorithm efficiency and performance</td>
+                <td><a href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/"><img src="{% static 'img_3.png' %}" alt="Learn more"></a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+{% endblock child2 %}

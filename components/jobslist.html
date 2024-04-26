@@ -1,0 +1,60 @@
+{% extends 'jobbase.html' %}
+{% load static %}
+
+{% block child2 %}
+<div class="container">
+    <div class="row">
+        {% for job in jobs %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="image-container" style="height: 200px; overflow: hidden;">
+                    <img src="{{job.image.url}}" alt="{{job.title}}" style="width: 100%; height: auto;">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ job.title }}</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Company:</strong> {{ job.company }}</li>
+                        <li><strong>Location:</strong> {{ job.location }}</li>
+                        <li><strong>Salary:</strong> ₹ {{ job.salary }}/month</li>
+                        <li><strong>Start Date:</strong> {{ job.start_date }}</li>
+                        <li><strong>End Date:</strong> {{ job.end_date }}</li>
+                    </ul>
+                    {% if job.status  %}
+                    <button type="button" class="btn btn-success" disabled>Applied</button>
+                    {% else %}
+                    {% if request.user in job.appliedjobs_set.all %}
+                    <button type="button" class="btn btn-success" disabled>Applied</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#jobDescriptionModal{{ job.id }}">View Details</button>
+                    <a href="{% url 'apply' job.id %}" class="btn btn-success">Apply</a>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Job Description Modal -->
+        <div class="modal fade" id="jobDescriptionModal{{ job.id }}" tabindex="-1" role="dialog" aria-labelledby="jobDescriptionModalLabel{{ job.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="jobDescriptionModalLabel{{ job.id }}">Job Description</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ job.description }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Job Description Modal -->
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock child2 %}

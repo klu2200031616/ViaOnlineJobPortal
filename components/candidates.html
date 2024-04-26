@@ -1,0 +1,57 @@
+{% extends 'employerbase.html' %}
+{% load static %}
+
+{% block child3 %}
+<div class="card-container">
+    <h2>Candidates List</h2>
+    {% if applied_jobs %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Qualification</th>
+                <th>CGPA</th>
+                <th>Resume</th>
+                <th>Marksheet</th>
+                <th>GitHub</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for applied_job in applied_jobs %}
+            <tr>
+                <td>{{ applied_job.name }}</td>
+                <td>{{ applied_job.email }}</td>
+                <td>{{ applied_job.gender }}</td>
+                <td>{{ applied_job.qualification }}</td>
+                <td>{{ applied_job.cgpa }}</td>
+                <td><a href="{{ applied_job.resume.url }}" target="_blank"><img src="{% static 'img_3.png' %}" alt="Resume" style="width: 32px; height: 32px;"></a></td>
+                <td><a href="{{ applied_job.marksheet.url }}" target="_blank"><img src="{% static 'img_7.png' %}" alt="Marksheet" style="width: 32px; height: 32px;"></a></td>
+                <td><a href="{{ applied_job.github }}" target="_blank"><img src="{% static 'img_8.png' %}" alt="GitHub" style="width: 32px; height: 32px;"></a></td>
+                <td>{{ applied_job.status }}</td>
+                <td>
+                    <form action="{% url 'select_candidate' user_=applied_job.email   company_=applied_job.company_name%}" method="POST" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success">&#10004; Select</button>
+                    </form>
+                    <form action="{% url 'reject_candidate' user_=applied_job.email company_=applied_job.company_name %}" method="POST" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">&#10006; Reject</button>
+                    </form>
+<!--                     <form action="{% url 'send_email' user_=applied_job.email  %}" method="POST" style="display: inline;">-->
+<!--                        {% csrf_token %}-->
+<!--                        <button type="submit" class="btn btn-success">&#10004; Send</button>-->
+<!--                    </form>-->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No applied jobs found.</p>
+    {% endif %}
+</div>
+{% endblock child3 %}

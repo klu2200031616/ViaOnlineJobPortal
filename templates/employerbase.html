@@ -1,0 +1,90 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .navbar-custom .navbar-nav .nav-link {
+            color: blue; /* Changing font color to blue */
+            transition: background-color 0.3s;
+        }
+
+        .navbar-custom .navbar-nav .nav-link:hover {
+            background-color: yellowgreen;
+        }
+
+        .navbar-custom .navbar-brand img {
+            width: 40px; /* Increasing logo size */
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .navbar-custom .navbar-nav .nav-item {
+            margin-right: 10px; /* Adding space between each component */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'img.png'%}" alt="">
+            <b>Via</b>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                 <li class="nav-item">
+    <!-- Button for Jobs List -->
+    <a class="nav-link btn" href="/post">
+        <i class="fas fa-briefcase mr-2"></i> Post
+    </a>
+</li>
+
+
+                <li class="nav-item">
+    <!-- Button for Jobs List -->
+    <a class="nav-link btn" href="/candidates">
+        <i class="fas fa-briefcase mr-2"></i> Candidates applied
+    </a>
+</li>
+                <li class="nav-item">
+                    <!-- Logout Icon -->
+                    <a class="nav-link" href="/home">
+                        <i class="fas fa-sign-out-alt"></i> Log out
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <!-- Avatar -->
+                    <a class="nav-link" href="/profile2">
+                        <span class="ml-2">{{ request.user.username }}</span>
+                        <img src="{% static 'pro1.jpg' %}" alt="Avatar" style="width: 25px; height: 25px; border-radius: 50%;">
+
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block child3 %}
+
+{% endblock child3 %}
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+{% extends 'jobbase.html' %}
+{% load static%}
+{% block child2 %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Programming Languages</title>
+    <style>
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+           background-image: url("{% static 'jsbg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>History of Programming Languages and Their Importance in the Job Market</h1>
+
+        <p>
+            Programming languages have evolved significantly over the years, shaping the way we interact with computers and the digital world. Understanding the history of programming languages is crucial for any aspiring developer or job seeker in the tech industry.
+        </p>
+
+        <p>
+            Here's a brief overview of some key programming languages and their importance in the job market:
+        </p>
+
+        <ul>
+            <li><strong>C:</strong> Developed by Dennis Ritchie in 1972, C is a versatile language used in system programming, game development, and embedded systems.</li>
+            <li><strong>Java:</strong> Developed by James Gosling in 1995, Java is widely used for web development, Android app development, and enterprise software.</li>
+            <li><strong>Python:</strong> Developed by Guido van Rossum in 1989, Python is popular for data analysis, machine learning, web development, and automation.</li>
+        </ul>
+
+        <h2>Programming Languages Timeline:</h2>
+        <table>
+            <tr>
+                <th>Language</th>
+                <th>Developed By</th>
+                <th>Developed In</th>
+                <th>Uses</th>
+                <th>Learn More</th>
+            </tr>
+            <tr>
+                <td>C</td>
+                <td>Dennis Ritchie</td>
+                <td>1972</td>
+                <td>System programming, game development, embedded systems</td>
+                <td><a href="https://www.geeksforgeeks.org/c-programming-language/"><img src="{% static 'img_3.png' %}" alt="Learn more"></a></td>
+            </tr>
+            <tr>
+                <td>Java</td>
+                <td>James Gosling</td>
+                <td>1995</td>
+                <td>Web development, Android app development, enterprise software</td>
+                <td><a href="https://www.geeksforgeeks.org/java/"><img src="{% static 'img_3.png' %}" alt="Learn more"></a></td>
+            </tr>
+            <tr>
+                <td>Python</td>
+                <td>Guido van Rossum</td>
+                <td>1989</td>
+                <td>Data analysis, machine learning, web development, automation</td>
+                <td><a href="https://www.geeksforgeeks.org/python-programming-language/"><img src="{% static 'img_3.png' %}"" alt="Learn more"></a></td>
+            </tr>
+            <!-- Add more languages as needed -->
+        </table>
+    </div>
+    <div class="container">
+        <h1>Competitive Coding and its Importance</h1>
+
+        <p>
+            Competitive coding is the process of solving algorithmic problems of varying levels of difficulty. It is not only important for improving your problem-solving skills but also for cracking coding interviews. Here are some popular platforms for competitive coding and their importance:
+        </p>
+
+        <h2>Competitive Coding Platforms:</h2>
+        <table>
+            <tr>
+                <th>Platform</th>
+                <th>Importance</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>LeetCode</td>
+                <td>Offers a vast collection of problems with solutions, great for interview preparation</td>
+                <td><a href="https://leetcode.com/">LeetCode</a></td>
+            </tr>
+            <tr>
+                <td>HackerRank</td>
+                <td>Provides coding challenges and competitions, helps in improving problem-solving skills</td>
+                <td><a href="https://www.hackerrank.com/domains/tutorials/10-days-of-javascript">HackerRank</a></td>
+            </tr>
+            <tr>
+                <td>Codeforces</td>
+                <td>Hosts competitive programming contests and provides a platform for coding practice</td>
+                <td><a href="https://codeforces.com/">Codeforces</a></td>
+            </tr>
+            <tr>
+                <td>CodeChef</td>
+                <td>Organizes coding competitions and provides practice problems across various difficulty levels</td>
+                <td><a href="https://www.codechef.com/">CodeChef</a></td>
+            </tr>
+            <!-- Add more competitive coding platforms as needed -->
+        </table>
+    </div>
+</body>
+</html>
+{% endblock child2 %}

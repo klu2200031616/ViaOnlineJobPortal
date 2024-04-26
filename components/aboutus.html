@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Via - Your Path to Success</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="./style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .jumbotron {
+            background-image: url('https://via.placeholder.com/1920x800');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .jumbotron h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .features {
+            background-color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .feature-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .feature-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer p {
+            margin-bottom: 0;
+        }
+ .vision-card {
+        border: 2px solid #28a745; /* Green shaded border */
+        border-radius: 10px; /* Rounded corners */
+        padding: 30px;
+        margin: 20px auto;
+        max-width: 600px;
+        background-color: #f8f9fa; /* Light background color */
+    }
+
+    .vision-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+
+    .vision-card h2 {
+        color: #343a40;
+        margin-bottom: 20px;
+    }
+
+    .vision-card p {
+        color: #6c757d;
+        margin-bottom: 20px;
+    }
+
+    .btn-register,
+    .btn-login {
+        background-color: #28a745; /* Green color for buttons */
+        border-color: #28a745; /* Green color for button border */
+        border-radius: 30px; /* Rounded shape for buttons */
+        color: #fff; /* White text color */
+        margin-top: 10px; /* Add some space between buttons */
+    }
+
+    .btn-register:hover,
+    .btn-login:hover {
+        background-color: #218838; /* Darker green color on hover */
+        border-color: #218838; /* Darker green color for button border on hover */
+    }
+
+ .card-img-top{
+    border-radius: 50%;
+    height: 250px !important;
+    width: 250px !important;
+    position: relative;
+    left: 80px;
+    top: -80px;
+    object-fit: cover;
+}
+.card{
+    border-radius: 0;
+    cursor: pointer;
+    margin-top: 100px !important;
+}
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+.card-body{
+    margin-top: -50px;
+}
+.bi{
+    font-size: 25px;
+}
+@media only screen and (max-width: 600px) {
+    .card-img-top{
+
+        left: 48px !important;
+
+    }
+  }
+
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.social-icons {
+  margin-top: 10px;
+  text-align: center; /* Align icons at the center */
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 40px; /* Increase icon size */
+  height: 40px; /* Increase icon size */
+  background-color: #ccc;
+  margin: 0 5px; /* Add some margin between icons */
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px; /* Center content vertically */
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px; /* Increase icon size */
+}
+
+.social-icons a:hover {
+  background-color: #555;
+}
+.building-team-heading {
+  color: #8a2be2; /* Red-purple color */
+}
+
+
+    </style>
+</head>
+{% block child1%}
+
+<body>
+<!-- Jumbotron -->
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">Find Your Dream Job with Via</h1>
+        <p class="lead">Your Path to Success Starts Here</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Explore Jobs</a>
+    </div>
+</div>
+
+<!-- Features -->
+<div class="container features">
+    <div class="row">
+        <div class="col-md-4">
+            <i class="fas fa-users feature-icon"></i>
+            <h2 class="feature-title">Connect with Employers</h2>
+            <p class="feature-description">Join our platform and connect directly with top employers.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-briefcase feature-icon"></i>
+            <h2 class="feature-title">Browse Jobs</h2>
+            <p class="feature-description">Explore thousands of job opportunities in various industries.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-handshake feature-icon"></i>
+            <h2 class="feature-title">Get Hired</h2>
+            <p class="feature-description">Find the perfect job and start your career journey today.</p>
+        </div>
+    </div>
+</div><br><br><br>
+<div class="container">
+    <div class="vision-card text-center">
+        <img src="{% static 'img.png'%}" alt="Via Logo">
+        <h2 class="mb-4">Our Vision</h2>
+        <p class="mb-4">At Via, we envision a world where every individual's potential is realized and celebrated. Our platform is more than just a job portal; it's a gateway to endless possibilities and opportunities. With a commitment to empowering careers and building futures, we connect talented professionals with innovative companies, fostering growth and success for all. Join us on this journey of discovery and achievement, where every step forward is a testament to the boundless potential within you.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-success btn-rounded mr-2" onclick="window.location.href='/register'" data-mdb-ripple-init>Register</button>
+            </div>
+            <div class="col-md-6">
+                 <button type="button" class="btn btn-success btn-rounded mr-2" onclick="window.location.href='/login'" data-mdb-ripple-init>Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br>
+  <div class="container text-center py-5">
+       <h3 class="building-team-heading">Building Team</h3>
+
+        <h4 class="text-muted">Via our skilled website building team, we craft a dynamic job portal website, tailored to connect job seekers with opportunities seamlessly.</h4>
+        <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+            <div class="col">
+              <div class="card">
+                <img src="{% static 'img_15.png'%}" class="card-img-top" alt="..." style="height: 400px;">
+                <div class="card-body">
+                  <h5 class="card-title">Nusum Triveni</h5>
+                  <p class="card-text">Frontend developer of this Via job portal</p>
+                </div>
+                <div class="d-flex justify-content-evenly p-4">
+                   <div class="social-icons">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="{% static 'img_17.png'%}" class="card-img-top" alt="..." style="height: 400px;">
+                <div class="card-body">
+                  <h5 class="card-title">Nimmagada Kavya</h5>
+                  <p class="card-text">Website Maintaince</p>
+                </div>
+                <div class="d-flex justify-content-evenly p-4">
+                    <div class="social-icons">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="{% static 'p2.jpg'%}" class="card-img-top" alt="..."style="height: 400px;">
+                <div class="card-body">
+                  <h5 class="card-title">P S L Saroja Devi</h5>
+                  <p class="card-text">Backend developer</p>
+                </div>
+                <div class="d-flex justify-content-evenly p-4">
+                   <div class="social-icons">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+    </div>
+</body>
+</html>
+{% endblock child1%}

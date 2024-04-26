@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block child1%}
+<head>
+     <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body style="background-image: url('{% static 'hbg.jpg' %}'); background-size: cover;">
+    <div class="d-flex justify-content-center">
+        <h1>Online Job Portal</h1>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+    <button type="button" class="btn btn-success btn-rounded mr-2" onclick="window.location.href='/aboutus'" data-mdb-ripple-init>About Us</button>
+
+       <button type="button" class="btn btn-primary btn-rounded ml-2" onclick="window.location.href='/contactus'" data-mdb-ripple-init>Contact Us</button>
+</div>
+<footer class="bg-body-tertiary text-center fixed-bottom">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-body" href="https://mdbootstrap.com/">Via.KLUniversity</a>
+    </div>
+    </footer>
+
+</body>
+
+
+{% endblock child1%}
